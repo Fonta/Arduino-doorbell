@@ -15,6 +15,7 @@ void setup_webserver() {
   webserver.on("/info", web_infoPage);
   webserver.on("/save", web_saveTimings);
   webserver.on("/default", web_defaultTimings);
+  webserver.on("/reboot", web_rebootPage);
 
   webserver.onNotFound(web_handleNotFound);
 
@@ -59,7 +60,7 @@ void web_returnRoot() {
   html += "<div class='form-group'><label for='noNotificationsDurationField'>Notification Cooldown duration</label><input type='number' class='form-control' name='noNotificationsDuration' id='noNotificationsDurationField' placeholder='' value='";
   html += round(noNotificationsDuration);
   html += "' ></div>";
-  html += "<button type='submit' class='btn btn-primary'>Save!</button> <button type='button' class='btn btn-secondary' onclick='window.location.href=\"/default\"'>Reset</button>";
+  html += "<button type='submit' class='btn btn-primary'>Save!</button> <button type='button' class='btn btn-secondary' onclick='window.location.href=\"/default\"'>Defaults</button>";
   html += "</form></div></main>";
   html += web_footer();
 
@@ -69,7 +70,8 @@ void web_returnRoot() {
 void web_infoPage() {
   String html = web_header();
   html += "<main role='main' class='container' id='info'><div class='jumbotron'>";
-  html += "Info page";
+  html += "<p>Info page</p>";
+  html += "<button type='button' class='btn btn-warning' onclick='window.location.href=\"/reboot\"'>Reboot</button>";
   html += "</div></main>";
   html += web_footer();
 
@@ -86,6 +88,18 @@ void web_updatePage() {
   html += "<script>$('.custom-file-input').on('change', function(e) { let fileName = $(this).val().split('\\\\').pop(); $(this).next('.custom-file-label').addClass('selected').html(fileName); });</script>";
 
   webserver.send(200, "text/html", html);
+}
+
+void web_rebootPage() {  
+  String html = web_header();
+  html += "<main role='main' class='container' id='info'><div class='jumbotron'>";
+  html += "Rebooting the device!";
+  html += "</div></main>";
+  html += web_footer();
+  html += "<script>setTimeout(function() { window.location.href = '/'; }, 3000);</script>";
+
+  webserver.send(200, "text/html", html);
+  ESP.restart();
 }
 
 void web_handleNotFound() {
