@@ -1,2 +1,3 @@
 .gitignore
+.gitattributes
 a_env.ino
