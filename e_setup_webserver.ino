@@ -96,9 +96,10 @@ void web_rebootPage() {
   html += "Rebooting the device!";
   html += "</div></main>";
   html += web_footer();
-  html += "<script>setTimeout(function() { window.location.href = '/'; }, 3000);</script>";
+  html += "<script>$(function() { setTimeout(function() { window.location.href = '/'; }, 5000); });</script>";
 
   webserver.send(200, "text/html", html);
+  delay(50);
   ESP.restart();
 }
 
