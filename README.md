@@ -3,6 +3,7 @@ After downloading, (uncomment and) change the following:
 
 in b_setup_wifi:
 ```cpp
+#define WLAN_HOSTNAME   "doorbell"
 // #define WLAN_SSID      "SSID"
 // #define WLAN_PASS      "WIFIPASSWORD"
 ```
