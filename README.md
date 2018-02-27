@@ -15,7 +15,7 @@ In c_setup_mqtt.ino:
 // #define MQTT_PASSWORD  "MQTTPASSWORD"
 ```
 
-For over the air updating you'll have to configure a name and password.
+For over the air updating you'll have to configure a name and password.  
 In e_stup_webserver.ino:
 ```cpp
 // const char* update_username = "USERNAME";
