@@ -1,13 +1,13 @@
 # Arduino-doorbell
 After downloading, (uncomment and) change the following:
 
-in b_setup_wifi.ino:
+In b_setup_wifi.ino:
 ```cpp
 #define WLAN_HOSTNAME   "doorbell"
 // #define WLAN_SSID      "SSID"
 // #define WLAN_PASS      "WIFIPASSWORD"
 ```
-in c_setup_mqtt.ino:
+In c_setup_mqtt.ino:
 ```cpp
 #define MQTT_SERVER       "192.168.1.19"
 #define MQTT_SERVERPORT   1883     // use 8883 for SSL
