@@ -1,4 +1,4 @@
-/********************* Includes and variabled *******************************/
+/********************* Includes and variables *******************************/
 #include <EEPROM.h>
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
